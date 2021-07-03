@@ -7,5 +7,5 @@ import com.hollyland.mvc.models.Admin;
 
 @Repository
 public interface AdminRepository extends CrudRepository<Admin, Long>{
-
+	Admin findByEmail(String email);
 }
