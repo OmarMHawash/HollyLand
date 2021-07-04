@@ -1,5 +1,7 @@
 package com.hollyland.mvc.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.hollyland.mvc.models.Admin;
@@ -32,7 +34,7 @@ public class AdminService {
 	
 	public boolean isAuthorized(String email, String password) {
 		String passwordToBeChecked = password;
-		Admin admin = this.adminRepository.findByEmail(email);
+		Admin admin = getAdminByEmail(email);
 		String realPassword = admin.getPassword();
 		if(admin != null)
 			if(passwordToBeChecked.equals(realPassword))
@@ -41,6 +43,11 @@ public class AdminService {
 	}
 	
 	public Admin getAdminByEmail(String email) {
-		return this.adminRepository.findByEmail(email);
+		List<Admin> admins = this.adminRepository.findByEmail(email);
+		return admins.get(0);
+	}
+	
+	public void createAdmin(Admin admin) {
+		this.adminRepository.save(admin);
 	}
 }
