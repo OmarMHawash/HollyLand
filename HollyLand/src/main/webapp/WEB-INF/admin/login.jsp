@@ -22,7 +22,7 @@
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">
-					<form:form action="/login" method="POST" modelAttribute="admin">
+					<form:form action="/admin/login" method="POST" modelAttribute="admin">
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -34,12 +34,6 @@
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
 							<form:input type="password" path="password" class="form-control input_pass" placeholder="Password"/>
-						</div>
-						<div class="form-group">
-							<div class="custom-control custom-checkbox">
-								<input type="checkbox" name="rememberMe" class="custom-control-input" value="true" id="remember-me">
-								<label class="custom-control-label" for="remember_me">Remember me</label>
-							</div>
 						</div>
 						<div class="d-flex justify-content-center mt-3 login_container">
 				 	        <input type="submit" class="btn login_btn" value="Login">

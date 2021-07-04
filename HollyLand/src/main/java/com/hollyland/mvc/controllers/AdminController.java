@@ -12,7 +12,6 @@ import com.hollyland.mvc.models.Admin;
 import com.hollyland.mvc.services.AdminService;
 
 @Controller
-@RequestMapping("/admin")
 public class AdminController {
 	private final AdminService adminService;
 	
@@ -20,28 +19,33 @@ public class AdminController {
 		this.adminService = adminService;
 	}
 	
-	@RequestMapping("")
-	public String showAdminLoginPage(@ModelAttribute(value="admin") Admin admin,
+	@RequestMapping("/admin")
+	public String showAdminLoginPage(@ModelAttribute(name="admin") Admin admin,
 			HttpSession session) {
 		Long adminId = (Long) session.getAttribute("adminId");
 		if(adminId != null)
-			return "redirect:/login";
-		return "/admin/login.jsp";
+			return "redirect:/admin/login";
+		return "admin/login.jsp";
 	}
 	
-	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String login(@ModelAttribute(value="admin") Admin admin,
-			@RequestParam(value="rememberMe") boolean rememberMe,
+	@RequestMapping(value="/admin/login", method=RequestMethod.POST)
+	public String login(@ModelAttribute("admin") Admin admin,
+			@RequestParam(name="email") String email,
+			@RequestParam(name="password") String password,
 			HttpSession session) {
-		if(rememberMe) {
-			session.setAttribute("adminEmail", admin.getEmail());
-			session.setAttribute("adminPassword", admin.getPassword());
-		}
-		boolean isAuthorized = this.adminService.isAuthorized(admin);
+		System.out.println(email);
+		System.out.println(password);
+		boolean isAuthorized = this.adminService.isAuthorized(email, password);
 		if(isAuthorized) {
+			admin = this.adminService.getAdminByEmail(email);
 			session.setAttribute("adminId", admin.getId());
 			return "redirect:/showAdminDashboardPage";
 		}
 		return "/admin/login.jsp";
+	}
+	
+	@RequestMapping("/showAdminDashboardPage")
+	public String showAdminDashboardPage() {
+		return "admin/adminDashboard.jsp";
 	}
 }

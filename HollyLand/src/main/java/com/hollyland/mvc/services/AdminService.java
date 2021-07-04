@@ -1,6 +1,5 @@
 package com.hollyland.mvc.services;
 
-import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import com.hollyland.mvc.models.Admin;
@@ -31,13 +30,17 @@ public class AdminService {
 		this.villageRepository = villageRepository;
 	}
 	
-	public boolean isAuthorized(Admin admin) {
-		String passwordToBeChecked = admin.getPassword();
-		admin = this.adminRepository.findByEmail(admin.getEmail());
+	public boolean isAuthorized(String email, String password) {
+		String passwordToBeChecked = password;
+		Admin admin = this.adminRepository.findByEmail(email);
 		String realPassword = admin.getPassword();
 		if(admin != null)
-			if(BCrypt.checkpw(passwordToBeChecked, realPassword))
+			if(passwordToBeChecked.equals(realPassword))
 				return true;
 		return false;
+	}
+	
+	public Admin getAdminByEmail(String email) {
+		return this.adminRepository.findByEmail(email);
 	}
 }
