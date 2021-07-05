@@ -11,4 +11,5 @@ import com.hollyland.mvc.models.City;
 public interface CityRepository extends CrudRepository<City, Long>{
 	List<City> findAll();
 
+	
 }

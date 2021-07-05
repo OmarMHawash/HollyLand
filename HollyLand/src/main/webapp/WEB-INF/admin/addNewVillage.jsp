@@ -15,7 +15,7 @@
 <body>
 	<div class="container h-100">
         <div class="ref1">
-            <a href="#" class="link-danger">Dashboard</a>
+            <a href="/showAdminDashboardPage" class="link-danger">Dashboard</a>
         </div>
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
@@ -25,38 +25,42 @@
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">
-					<form action="/login" method="POST" modelAttribute="admin">
+					<form:form action="/addVillage" method="POST" modelAttribute="village">
 						<div class="form-group">
                             
                             <select class="form-control" id="exampleFormControlSelect1" placeholder="City">
                                 <option value="0">City</option>
-                                <option>Rammallah</option>
-                                <option>Gaza</option>
-                                <option>Nablus</option>
-                                <option>Hebron (al-Khalil)</option>
-                                <option>Jenin</option>
+                                <c:forEach items="${cities}" var="city" >
+								    <option value="${city.id}">
+								        ${city.name}
+								    </option>
+								</c:forEach>
+                                
                             </select>
                         </div>
                         <div class="form-group">
                         
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Village Name">
+                            <form:input path="name" class="form-control" id="exampleFormControlInput1" placeholder="Village Name"/>
                         </div>
 						<div class="form-group">
                         
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Village Area">
+                            <form:input path="space" class="form-control" id="exampleFormControlInput1" placeholder="Village Area"/>
                         </div>
                         <div class="form-group">
                         
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Population">
+                            <form:input path="populdation" class="form-control" id="exampleFormControlInput1" placeholder="Population"/>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1"></label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Description"></textarea>
+                            <form:textarea path="description" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Description"/>
                         </div>
 						<div class="d-flex justify-content-center mt-3 login_container">
-				 	        <input type="submit" class="btn login_btn" value="Create">
+				 	        <input  type="submit" class="btn login_btn" value="Create">
 				        </div>
-					</form>
+					</form:form>
+					<p>
+						<form:errors path="village.*"/>
+					<p> 
 				</div>
 			</div>
 		</div>

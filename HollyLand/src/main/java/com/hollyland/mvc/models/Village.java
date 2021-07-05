@@ -34,13 +34,18 @@ public class Village {
 	private int populdation;
 	@NotEmpty
 	private String description;
+	
 	@OneToMany(mappedBy="villageImage", fetch = FetchType.LAZY)
 	private List<Image> images;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="city_id")
 	private City city;
+	
 	@OneToMany(mappedBy="villageReport", fetch = FetchType.LAZY)
 	private List<Report> reports;
+	
+	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;

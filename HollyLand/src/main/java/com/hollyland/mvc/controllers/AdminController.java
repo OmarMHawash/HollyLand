@@ -6,9 +6,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.hollyland.mvc.models.Admin;
 import com.hollyland.mvc.models.City;
 import com.hollyland.mvc.models.Village;
@@ -64,6 +66,11 @@ public class AdminController {
 		model.addAttribute("cities", cities);
 		model.addAttribute("villages", villages);
 		return "admin/adminDashboard.jsp";
+	}
+	@RequestMapping("/createVillage")
+	public String addewVillage(@ModelAttribute("village") Village v) {
+		
+		return "admin/addNewVillage.jsp";
 	}
 	
 	@RequestMapping("/logout")
