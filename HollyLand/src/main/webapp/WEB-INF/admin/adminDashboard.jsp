@@ -6,13 +6,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-<link rel="stylesheet" href="/css/AdminDashboardPageStyle.css">
-<title>Admin</title>
+	<meta charset="ISO-8859-1">
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet"
+		href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+	<link rel="stylesheet" href="/css/AdminDashboardPageStyle.css">
+	<script src="jquery-3.5.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<title>Admin</title>
+	<c:forEach items="${cities}" var="city">
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".${city.id}").hide();
+				$("#${city.id}").click(function(){
+					$(".${city.id}").toggle();
+				});
+			});
+		</script>
+	</c:forEach>
 </head>
 <body>
 	<header>
@@ -47,11 +59,15 @@
 					<p><a href="/createVillage">Create new village</a></p>
 				</div>
 				<c:forEach items="${cities}" var="city">
-					<div>
+					<div class="city-div">
 						<button type="button" id="${city.id}" class="btn btn-secondary btn-lg"><c:out value="${city.name}"/></button>
 						<div class="${city.id}">
-							<c:forEach items="villages" var="village">
-								<button type="button" id="${village.id}" class="btn btn-secondary btn-lg"><c:out value="${village.name}"/></button>
+							<c:forEach items="${villages}" var="village">
+								<c:if test="${village.city == city}">
+									<form action="/adminEditVillage/${village.id}" method="POST" class="village-div">
+										<input type="submit" value="${village.name}" class="btn">
+									</form>
+								</c:if>
 							</c:forEach>
 						</div>
 					</div>

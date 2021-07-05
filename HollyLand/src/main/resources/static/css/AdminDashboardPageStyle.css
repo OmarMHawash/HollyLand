@@ -29,3 +29,16 @@ div.inner-con {
 	margin: 150px 0 0 70px;
 	position: absolute;
 }
+div.city-div{
+	margin:10px 0;
+	display:flex;
+	flex-direction:column;
+	min-width:100px;
+}
+form.village-div{
+	margin:10px 0 10px 20px;
+	
+}
+form.village-div input{
+	
+}

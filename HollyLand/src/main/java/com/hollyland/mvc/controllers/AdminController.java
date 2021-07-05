@@ -1,5 +1,7 @@
 package com.hollyland.mvc.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -8,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.hollyland.mvc.models.Admin;
+import com.hollyland.mvc.models.City;
+import com.hollyland.mvc.models.Village;
 import com.hollyland.mvc.services.AdminService;
 
 @Controller
@@ -54,13 +58,25 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/showAdminDashboardPage")
-	public String showAdminDashboardPage() {
+	public String showAdminDashboardPage(Model model) {
+		List<City> cities = this.adminService.getCities();
+		List<Village> villages = this.adminService.getVillages();
+		model.addAttribute("cities", cities);
+		model.addAttribute("villages", villages);
 		return "admin/adminDashboard.jsp";
 	}
 	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
+		return "redirect:/admin";
+	}
+	
+	@RequestMapping("/createVillage")
+	public String showCreateVillagePage(HttpSession session) {
+		Long adminId = (Long) session.getAttribute("adminId");
+		if(adminId != null)
+			return "addNewVillage.jsp";
 		return "redirect:/admin";
 	}
 }

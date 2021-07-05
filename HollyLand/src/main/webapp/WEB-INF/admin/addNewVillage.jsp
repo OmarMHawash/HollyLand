@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
     <link rel="stylesheet" href="/css/AdminLoginPageStyle.css">
-	<title>HollyLand - Admin</title>
+	<title>Admin</title>
 </head>
 <body>
 	<div class="container h-100">

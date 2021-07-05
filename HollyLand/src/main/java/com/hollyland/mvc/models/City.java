@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name="admins")
+@Table(name="cities")
 public class City {
 	//Fields
 	@Id

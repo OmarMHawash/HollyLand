@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.hollyland.mvc.models.Admin;
+import com.hollyland.mvc.models.City;
+import com.hollyland.mvc.models.Village;
 import com.hollyland.mvc.repositories.AdminRepository;
 import com.hollyland.mvc.repositories.CityRepository;
 import com.hollyland.mvc.repositories.ImageRepository;
@@ -49,5 +51,13 @@ public class AdminService {
 	
 	public void createAdmin(Admin admin) {
 		this.adminRepository.save(admin);
+	}
+	
+	public List<City> getCities(){
+		return this.cityRepository.findAll();
+	}
+	
+	public List<Village> getVillages(){
+		return this.villageRepository.findAll();
 	}
 }
