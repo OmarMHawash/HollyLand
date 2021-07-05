@@ -23,37 +23,37 @@ const marker7 = L.marker([31.7683, 35.2137]).addTo(mymap);
 // Add popup message
 let template1 = 
 `
-<a href="/city/nablus"><button  class="btn btn-outline-primary" id="s1">Nablus</button></a>
+<a href="/city/1"><button  class="btn btn-outline-primary" id="s1">Nablus</button></a>
 `
 
 let template2 = `
 
-<a href=""><button  class="btn btn-outline-primary" id="s1">Jenin</button></a>
+<a href="/city/2"><button  class="btn btn-outline-primary" id="s1">Jenin</button></a>
 
 `
 let template3 = 
 `
-<h2><a href="/nablus">tulkarem</a></h2>
+<a href="/city/3"><button  class="btn btn-outline-primary" id="s1">Tulkarem</button></a>
 `
 
 let template4 = `
 
-<h2><a href="/nablus">beithlehem</a></h2>
+<a href="/city/4"><button  class="btn btn-outline-primary" id="s1">Beithlehem</button></a>
 
 `
 let template5 = 
 `
-<h2><a href="/nablus">ramallah</a></h2>
+<a href="/city/5"><button  class="btn btn-outline-primary" id="s1">Ramallah</button></a>
 `
 
 let template6 = `
 
-<h2><a href="/nablus">hebron</a></h2>
+<a href="/city/6"><button  class="btn btn-outline-primary" id="s1">Hebron</button></a>
 
 `
 let template7 = 
 `
-<h2><a href="/nablus">Jerusalem</a></h2>
+<a href="/city/7"><button  class="btn btn-outline-primary" id="s1">Jerusalem</button></a>
 `
 marker1.bindPopup(template1);
 marker2.bindPopup(template2);
