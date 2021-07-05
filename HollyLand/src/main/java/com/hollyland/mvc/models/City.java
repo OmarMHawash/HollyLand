@@ -18,10 +18,8 @@ public class City {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	@NotEmpty
+	@NotEmpty(message = "City name cannot be blank")
 	private String name;
-	
-	
 	@OneToMany(mappedBy="city", fetch = FetchType.LAZY)
     private List<Village> villages;
 	

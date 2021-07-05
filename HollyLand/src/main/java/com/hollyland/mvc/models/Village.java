@@ -16,6 +16,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -28,24 +29,19 @@ public class Village {
 	private Long id;
 	@NotEmpty
 	private String name;
-	@NotEmpty
+	@NotNull
 	private float space;
-	@NotEmpty
-	private int populdation;
+	@NotNull
+	private int population;
 	@NotEmpty
 	private String description;
-	
 	@OneToMany(mappedBy="villageImage", fetch = FetchType.LAZY)
 	private List<Image> images;
-	
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="city_id")
 	private City city;
-	
 	@OneToMany(mappedBy="villageReport", fetch = FetchType.LAZY)
 	private List<Report> reports;
-	
-	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
@@ -59,7 +55,7 @@ public class Village {
 	public Village(String name, float space, int population, String description, City city) {
 		this.name = name;
 		this.space = space;
-		this.populdation = population;
+		this.population = population;
 		this.description = description;
 		this.city = city;
 	}
@@ -77,11 +73,11 @@ public class Village {
 	public void setSpace(float space) {
 		this.space = space;
 	}
-	public int getPopuldation() {
-		return populdation;
+	public int getPopulation() {
+		return population;
 	}
-	public void setPopuldation(int populdation) {
-		this.populdation = populdation;
+	public void setPopulation(int populdation) {
+		this.population = populdation;
 	}
 	public String getDescription() {
 		return description;

@@ -2,6 +2,10 @@
 
 div.con {
 	background: linear-gradient(#fff, #f8f9fa, #ddd3cd, #7c4d2f);
+	display:flex;
+	justify-content:space-between;
+	padding-left:70px;
+	margin: 150px 0 0 0px;
 }
 
 header {
@@ -24,11 +28,6 @@ header nav div#logout-div {
 header nav div.logo_div {
 	padding-left: 50px;
 }
-
-div.inner-con {
-	margin: 150px 0 0 70px;
-	position: absolute;
-}
 div.city-div{
 	margin:10px 0;
 	display:flex;
@@ -39,6 +38,7 @@ form.village-div{
 	margin:10px 0 10px 20px;
 	
 }
-form.village-div input{
-	
+div.messages-div{
+	margin-right:100px;
+	min-width:900px;
 }

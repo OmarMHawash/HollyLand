@@ -23,7 +23,7 @@ public class Image {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	@NotEmpty
+	@NotEmpty(message = "image url cannot be blank")
 	private String url;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "village_id")

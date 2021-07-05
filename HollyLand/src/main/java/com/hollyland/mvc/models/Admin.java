@@ -11,6 +11,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -21,8 +22,10 @@ public class Admin {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	@Email
+	@NotEmpty(message = "the email cannot be blank")
+	@Email(message = "you should follow the email pattern")
 	private String email;
+	@NotEmpty(message = "the password cannot be blank")
 	private String password;
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")

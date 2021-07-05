@@ -20,7 +20,7 @@ public class Message {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	@NotEmpty
+	@NotEmpty(message = "message cannot be blank")
 	private String message;
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")

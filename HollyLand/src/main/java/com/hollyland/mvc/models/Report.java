@@ -23,7 +23,7 @@ public class Report {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	@NotEmpty
+	@NotEmpty(message = "report cannot be blank")
 	private String report;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="village_id")
