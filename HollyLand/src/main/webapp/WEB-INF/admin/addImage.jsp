@@ -26,7 +26,7 @@
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">
-					<form action="/login" method="POST" modelAttribute="admin">
+					<form:form action="/addImage" method="POST" modelAttribute="image">
                         <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon3">Image URL</span>
@@ -37,7 +37,7 @@
 						<div class="d-flex justify-content-center mt-3 login_container">
 				 	        <input type="submit" class="btn login_btn" value="Add">
 				        </div>
-					</form>
+					</form:form>
 				</div>
 			</div>
 		</div>
