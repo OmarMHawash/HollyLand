@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +39,15 @@
 
         </div>
         <div class="other-one">
+        <h2>${city.name}</h2>
+        <ul>
+        <c:forEach items="${city.villages}" var="village">
+        <li><a href="/village/${village.id}">${village.name}</a></li>
+        </c:forEach>
+        <c:forEach items="${villages}" var="village">
+        <li><a href="/village/${village}">${village}</a></li>
+        </c:forEach>
+        </ul>
         </div>
 
         
@@ -49,9 +60,8 @@
               <div class="row">
                 <div class="col-6">
                   <ul class="list-unstyled">
-                    <li><a href="">Homepage</a></li>
-                    <li><a href="">Admin page</a></li>
-                    <li><a href="">Send Us An Image</a></li>
+                    <li><a href="/">Homepage</a></li>
+                    <li><a href="/login">Admin page</a></li>
                   </ul>
                 </div>
               </div>
@@ -76,6 +86,9 @@
         </div>
       </footer>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="main.js"></script>
+    <script  src="/js/main.js"></script>
+    
+        
+    
 </body>
 </html>

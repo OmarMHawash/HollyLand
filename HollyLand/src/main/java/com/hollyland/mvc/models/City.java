@@ -43,4 +43,15 @@ public class City {
 	public Long getId() {
 		return id;
 	}
+	public List<Village> getVillages() {
+		return villages;
+	}
+	public void setVillages(List<Village> villages) {
+		this.villages = villages;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	
 }

@@ -1,7 +1,3 @@
-/**
- * 
- */
- 
 const apiKey = 'pk.eyJ1IjoiYWxmcmVkMjAxNiIsImEiOiJja2RoMHkyd2wwdnZjMnJ0MTJwbnVmeng5In0.E4QbAFjiWLY8k3AFhDtErA';
 
 const mymap = L.map('map').setView([31.991680678023267,35.17389580867246], 9);
@@ -27,12 +23,12 @@ const marker7 = L.marker([31.7683, 35.2137]).addTo(mymap);
 // Add popup message
 let template1 = 
 `
-<a href="#"><button  class="btn btn-outline-primary" id="s1">Nablus</button></a>
+<a href="/city/nablus"><button  class="btn btn-outline-primary" id="s1">Nablus</button></a>
 `
 
 let template2 = `
 
-<h2><a href="/nablus">jenin</a></h2>
+<a href=""><button  class="btn btn-outline-primary" id="s1">Jenin</button></a>
 
 `
 let template3 = 

@@ -24,7 +24,7 @@
     <header>
       <div></div>
       <div>
-        <a href="#"><img src="/image/logo.png" alt="logo" /></a>
+        <a href="#"><img src="/img/logo.png" alt="logo" /></a>
       </div>
       <div class="go-back"><a href="">Go Back</a></div>
     </header>
@@ -32,9 +32,9 @@
       <h3 class="cName" style="font-size: 26px">City name</h3>
       <h1 class="vName" style="font-size: 40px">Village name</h1>
       <div class="images">
-        <img src="./village_test.jpg" alt="image of village" />
-        <img src="./village_test.jpg" alt="image of village" />
-        <img src="./village_test.jpg" alt="image of village" />
+        <img src="/img/logo.png" alt="image of village" />
+        <img src="/img/logo.png" alt="image of village" />
+        <img src="/img/logo.png" alt="image of village" />
       </div>
       <section>
         <div class="left" style="width: 35%">

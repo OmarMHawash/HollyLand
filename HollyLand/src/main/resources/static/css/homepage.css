@@ -1,5 +1,7 @@
 @charset "UTF-8";
-
+body{
+	background-color:#e7e2d8;
+}
 main{
             margin-top: 50px;
             margin-left: auto;
@@ -35,6 +37,7 @@ main{
             border: #9b9c9e 1px solid;
         }
         .other-one{
+        background-color:white;
             padding: 20px;
             border: #292c2f 1px dotted;
             width: 30%;
