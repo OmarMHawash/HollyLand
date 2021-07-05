@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name="admins")
+@Table(name="cities")
 public class City {
 	//Fields
 	@Id
@@ -20,6 +20,8 @@ public class City {
 	private Long id;
 	@NotEmpty
 	private String name;
+	
+	
 	@OneToMany(mappedBy="city", fetch = FetchType.LAZY)
     private List<Village> villages;
 	
